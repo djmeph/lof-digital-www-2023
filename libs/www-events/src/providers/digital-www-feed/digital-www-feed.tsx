@@ -36,7 +36,9 @@ export const DigitalWwwFeedProvider: FC = ({ children }) => {
     return <h1 className="title">Reticulating Splines ...</h1>;
 
   return (
-    <EventsFeedContext.Provider value={{ ...events.data, ...staticFeed.data }}>
+    <EventsFeedContext.Provider
+      value={{ ...events.data.coalesce, ...staticFeed.data }}
+    >
       {children}
     </EventsFeedContext.Provider>
   );
